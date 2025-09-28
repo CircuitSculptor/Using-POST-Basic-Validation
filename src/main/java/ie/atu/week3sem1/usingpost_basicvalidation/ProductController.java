@@ -13,4 +13,10 @@ public class ProductController {
     {
         return "hello";
     }
+    @GetMapping("/getproduct")
+    public Product getProduct()
+    {
+        Product myProduct = new Product("TV", 499);
+        return myProduct;
+    }
 }
