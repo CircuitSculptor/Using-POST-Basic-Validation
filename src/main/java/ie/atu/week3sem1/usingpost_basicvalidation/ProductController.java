@@ -1,22 +1,30 @@
 package ie.atu.week3sem1.usingpost_basicvalidation;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RequestMapping("/product")
 @RestController
 public class ProductController {
+    List<Product> myList = new ArrayList<>();
 
     @GetMapping("/hello")
-    public String hello()
-    {
+    public String hello() {
         return "hello";
     }
+
     @GetMapping("/getproduct")
-    public Product getProduct()
-    {
+    public List<Product> getProduct() {
         Product myProduct = new Product("TV", 499);
+        return myList;
+    }
+
+    @PostMapping("/addProduct")
+    public Product addProduct(@Valid @RequestBody Product myProduct) {
+        myList.add(myProduct);
         return myProduct;
     }
 }
