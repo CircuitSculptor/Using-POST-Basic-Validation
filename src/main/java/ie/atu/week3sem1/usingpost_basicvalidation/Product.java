@@ -10,7 +10,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class Product {
     @NotBlank
-    @Size(min = 3, max = 20)
+    @Size(min = 1, max = 20)
     private String productName;
     @Positive
     private double price;
