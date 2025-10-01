@@ -24,7 +24,7 @@ public class ProductController {
 
     @GetMapping("/getCount")
     public int getCount() {
-        return myList.size();
+        return Integer.parseInt("Amount of products added = " + myList.size());
     }
 
     @PostMapping("/addProduct")
